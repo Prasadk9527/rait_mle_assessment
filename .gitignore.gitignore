@@ -1,0 +1,45 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (optional - keep structure but not large files)
+data/*.db
+data/*.sqlite3
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables (sensitive data)
+.env
+.env.local
+.env.*.local
+
+# MyPy
+.mypy_cache/
+EOF

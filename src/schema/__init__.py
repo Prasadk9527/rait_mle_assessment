@@ -1,0 +1,1 @@
+from .canonical_schema import Interaction, EvaluationResult, CoverageReport

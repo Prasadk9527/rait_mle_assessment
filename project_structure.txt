@@ -1,0 +1,52 @@
+cat > project_structure.txt << 'EOF'
+rait-mle-assessment/
+├── README.md
+├── Makefile
+├── requirements.txt
+├── run_assessment.py
+├── check_files.sh
+├── setup_conda.sh
+├── .gitignore
+├── .env.example
+├── data/
+│   ├── supplier_a/
+│   │   └── synthetic_data.json
+│   ├── supplier_b/
+│   │   └── synthetic_data.csv
+│   └── supplier_c/
+│       └── sampled_interactions.json
+├── docs/
+│   ├── metric_definitions.md
+│   └── threshold_rationale.md
+├── src/
+│   ├── __init__.py
+│   ├── adapters/
+│   │   ├── __init__.py
+│   │   ├── base_adapter.py
+│   │   ├── supplier_a_adapter.py
+│   │   ├── supplier_b_adapter.py
+│   │   └── supplier_c_adapter.py
+│   ├── adversarial/
+│   │   ├── __init__.py
+│   │   ├── attack_patterns.py
+│   │   ├── llm_judge.py
+│   │   ├── llm_judge_light.py
+│   │   ├── red_team_pipeline.py
+│   │   └── semantic_search.py
+│   ├── coverage/
+│   │   ├── __init__.py
+│   │   └── coverage_reporter.py
+│   ├── metrics/
+│   │   ├── __init__.py
+│   │   ├── base_metric.py
+│   │   ├── fairness_metric.py
+│   │   ├── security_metric.py
+│   │   └── transparency_metric.py
+│   ├── schema/
+│   │   ├── __init__.py
+│   │   └── canonical_schema.py
+│   └── utils/
+│       └── __init__.py
+└── logs/
+    └── assessment.log
+EOF

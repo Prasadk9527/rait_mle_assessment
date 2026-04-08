@@ -1,0 +1,81 @@
+Project Workflow
+
+┌─────────────────────────────────────────────────────────────┐
+│                     USER RUNS ASSESSMENT                     │
+│                  python run_assessment.py                    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    PART 1: DATA LOADING                      │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐          │
+│  │ Supplier A  │  │ Supplier B  │  │ Supplier C  │          │
+│  │   (JSON)    │  │   (CSV)     │  │   (JSON)    │          │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘          │
+│         │                │                │                  │
+│         ▼                ▼                ▼                  │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │         Adapters transform to Canonical Schema       │    │
+│  └─────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 PART 2: METRIC EVALUATION                    │
+│                                                              │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  1. Security Metric (Prompt Injection Detection)    │    │
+│  │     - Pattern matching on prompts                   │    │
+│  │     - Checks injection attempts                     │    │
+│  │     - Returns detection rate                        │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                                                              │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  2. Fairness Metric (Response Quality Parity)       │    │
+│  │     - Detects demographic groups                    │    │
+│  │     - Calculates sentiment of responses             │    │
+│  │     - Measures disparity across groups              │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                                                              │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  3. Transparency Metric (Confidence Calibration)    │    │
+│  │     - Compares stated vs actual confidence          │    │
+│  │     - Calculates Brier score                        │    │
+│  │     - Returns calibration score                     │    │
+│  └─────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│               PART 3: ADVERSARIAL TESTING                    │
+│                                                              │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  1. Attack Patterns (12 pre-defined)                │    │
+│  │     - injection, jailbreak, extraction              │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                          │                                   │
+│                          ▼                                   │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  2. Semantic Search (Embedding Model)               │    │
+│  │     - Converts queries to vectors                   │    │
+│  │     - Finds similar attack patterns                 │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                          │                                   │
+│                          ▼                                   │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  3. Lightweight LLM Judge (Rule-Based)              │    │
+│  │     - Checks refusal keywords                       │    │
+│  │     - Checks malicious indicators                   │    │
+│  │     - Returns verdict (safe/partial/compromised)    │    │
+│  └─────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      FINAL OUTPUT                            │
+│                                                              │
+│  • Coverage Reports for each supplier                       │
+│  • Metric Scores (0-1 scale)                                │
+│  • Adversarial Robustness Score (90%)                       │
+│  • Pass/Warning/Fail status for each metric                 │
+└─────────────────────────────────────────────────────────────┘

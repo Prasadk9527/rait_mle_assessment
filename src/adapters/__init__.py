@@ -1,0 +1,3 @@
+from .supplier_a_adapter import SupplierAAdapter
+from .supplier_b_adapter import SupplierBAdapter
+from .supplier_c_adapter import SupplierCAdapter
